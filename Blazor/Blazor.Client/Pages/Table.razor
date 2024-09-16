@@ -1,0 +1,76 @@
+﻿@page "/tables"
+@using System.Globalization
+
+<TableTemplate Items="boeken" TItem="Boek" Context="boek">
+
+    <TableHeader>
+        <td>Boekenlijst</td>
+    </TableHeader>
+     <RowTemplate>
+
+     <td><img src="/images/@boek.ImgName" width="175"></td>
+
+     <div class="rechts">
+
+         <div class="rechts-top">
+            <td class="titel">@boek.Titel</td>
+            <td class="auteur">@boek.Auteur</td>
+         </div>
+
+        <div class="rechts-middle">
+                <td>@boek.Taal</td>
+                <td>@boek.Afwerking</td>
+                <td>@boek.ISBN</td>
+                <td>@boek.UitgifteDatum.ToString(new CultureInfo("nl-BE").DateTimeFormat.MonthDayPattern, new CultureInfo("nl-BE"))</td>
+                <td>@boek.AantalPaginas</td>
+            </div>
+
+            <div>
+                <td class="rechts-bottom">@boek.Beschrijving</td>
+            </div>
+
+     </div>
+     </RowTemplate>
+</TableTemplate>
+
+@code {
+    public IEnumerable<Boek> boeken = new List<Boek>()
+    {
+        new Boek
+        {
+            ImgName = "SteenDerWijzen.jpg",
+            Auteur = "Fjodor Dostojevski",
+            Titel = "Schuld en boete",
+            Taal = "Nederlands",
+            Afwerking = "Paperback",
+            ISBN = "9789031505128",
+            UitgifteDatum = new DateOnly(2008,09,01),
+            AantalPaginas = 286,
+            Beschrijving = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        },
+        new Boek
+        {
+            ImgName = "SchuldEnBoete.jpg",
+            Auteur = "J.K Rowling",
+            Titel = "Harry Potter en de steen der wijzen",
+            Taal = "Nederlands",
+            Afwerking = "Paperback",
+            ISBN = "9789061699767",
+            UitgifteDatum = new DateOnly(2022,01,01),
+            AantalPaginas = 301,
+            Beschrijving = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        },
+        new Boek
+        {
+            ImgName = "VerdrietVanBelgie.jpg",
+            Auteur = "Hugo Claus",
+            Titel = "Het verdriet van Belgie",
+            Taal = "Nederlands",
+            Afwerking = "Paperback",
+            ISBN = "9789031505128",
+            UitgifteDatum = new DateOnly(2018,02,01),
+            AantalPaginas = 720,
+            Beschrijving = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        }
+    };
+}

@@ -1,0 +1,38 @@
+﻿@page "/eenentwintig"
+<h1>Eenentwintig</h1>
+
+<button class="btn btn-primary m-3" @onclick="TrekKaart">Trek een kaart</button>
+
+<div class="mb-3">
+    @foreach (var kaart in kaarten)
+    {
+        var pad = $"/images/{kaart}.png";
+        <img src=@pad width="48" />
+    }
+</div>
+
+<p class="alert alert-info">Jouw score : @currentScore</p>
+
+<div>
+    <CopyrightFooter @attributes="footerAttributes" @ref="cfdynamic">
+        Blazor rocks
+    </CopyrightFooter>
+</div>
+
+<button class="btn btn-primary m-3" @onclick="InfoOphalen">Info</button>
+<div>@cursus</div>
+<div>@info</div>
+
+<button class="btn btn-primary m-3" @onclick="Verander">
+    Verander auteur
+</button>
+
+
+@code {
+
+    protected override bool ShouldRender()
+    {
+        return currentScore <= 21;
+    }
+
+}

@@ -1,0 +1,9 @@
+﻿@page "/Binding"
+
+<h1>Binding</h1>
+<textarea rows="3" cols="20" @bind="text" @bind:event="oninput"></textarea>
+<p>Lengte van de text: @text.Length</p>
+
+@code {
+    private string? text = "";
+}

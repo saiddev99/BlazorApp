@@ -1,0 +1,25 @@
+﻿@page "/dobbelen"
+@page "/dobbelen/{aantal:int}"
+<h1>Dobbelen</h1>
+
+<button class="btn btn-primary m-3" @onclick="Gooi">Gooi de stenen</button>
+
+
+@{
+    if (!results.Any(x => x == 0))
+    {
+        foreach (var item in results)
+        {
+            var pad = $"/images/{item}.png";
+            <img src=@pad width="48" />
+        }
+        <p class="alert alert-info">Jouw score : @results.Sum()</p>
+    }
+}
+
+<a href="dobbelen/3">Dobbelen met 3 stenen</a>
+<a href="dobbelen/4">Dobbelen met 4 stenen</a>
+
+@code {
+
+}

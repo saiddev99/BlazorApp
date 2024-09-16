@@ -1,0 +1,28 @@
+﻿thead tr td {
+    font-size: 2.5rem;
+}
+
+.auteur {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.titel {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.rechts-top td {
+    display: block;
+}
+
+.rechts-middle td {
+    display: inline;
+    padding-right: 0.5rem;
+    border-right: 1.4px solid gray;
+}
+
+.rechts div
+{
+    margin-bottom: 0.75rem;
+}
